@@ -1,0 +1,15 @@
+{
+    "name" : "Consulta a nota fiscal",
+    "request" : {
+      "urlPathTemplate" : "/v2/nfse/{entryPK}",
+      "method" : "GET"
+    },
+    "response" : {
+      "status" : 201,
+      "body" : "{\"message\": \"Hello, World\"}",
+      "headers" : { }
+    },
+    "persistent" : true,
+    "priority" : 1,
+    "postServeActions" : [ ]
+  }
