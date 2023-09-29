@@ -1,0 +1,29 @@
+{
+    "request": {
+        "urlPattern" : "/v2/nfse/\\?token=123&ref=.*",
+        "method" : "POST",
+        "pathParameters" : { },
+        "formParameters" : { },
+        "bodyPatterns" : [ {
+            "equalToJson" : {"data_emissao": "${json-unit.any-string}"},
+            "ignoreExtraElements" : true
+        }]
+    },
+    "response" : {
+        "status" : 200,
+        "body": "{\"data_emissao\": \"{{jsonPath request.body '$.data_emissao'}}\"}"
+    },
+    "serveEventListeners": [
+        {
+            "name": "webhook",
+            "parameters": {
+                "method": "POST",
+                "url": "https://webhook-test.com/8faa0ffdf36046f90aefc2b8663eddf1",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": "{ \"message\": \"success\", \"transactionId\": \"{{jsonPath originalRequest.body '$.tomador.cnpj'}}\", \"ref\": \"{{jsonPath originalRequest.query '$.ref'}}\"}"
+            }
+        }
+    ]
+}
