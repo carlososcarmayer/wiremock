@@ -1,6 +1,6 @@
 {
     "request": {
-        "urlPattern" : "/v2/nfse/\\?token=123&ref=.*",
+        "urlPattern" : "/v2/nfse/\\?token=tN2w5RzXvBp9A8QcYsD4F6HjM0Kg7L1&ref=.*",
         "method" : "POST",
         "pathParameters" : { },
         "formParameters" : { },
@@ -22,7 +22,7 @@
                 "headers": {
                     "Content-Type": "application/json"
                 },
-                "body": "{ \"message\": \"success\", \"transactionId\": \"{{jsonPath originalRequest.body '$.tomador.cnpj'}}\", \"ref\": \"{{jsonPath originalRequest.query '$.ref'}}\"}"
+                "body": "{ \"message\": \"success\", \"transactionId\": \"{{jsonPath originalRequest.body '$.tomador.cnpj'}}\", \"ref\": \"{{jsonPath originalRequest.query '$.ref'}}, \"caminho_danfe\": \"https://itapira.sp.gov.br/dowloads/20200716084620.pdf\"}"
             }
         }
     ]
